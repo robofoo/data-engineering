@@ -1,5 +1,6 @@
 Website::Application.routes.draw do
   root :to => 'pages#index'
+  match 'upload' => 'pages#upload'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

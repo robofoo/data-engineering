@@ -1,2 +1,6 @@
 Select a file to parse
 
+<%= form_tag({:action => :upload}, :multipart => true) do %>
+  <%= file_field_tag 'purchases' %>
+  <%= submit_tag 'upload' %>
+<% end %>
