@@ -5,7 +5,8 @@ class PagesController < ApplicationController
   def upload
     if params.has_key?(:purchases)
       uploaded_io = params[:purchases]
-      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
+      file_path = Rails.root.join('public', 'uploads', uploaded_io.original_filename)
+      File.open(file_path, 'w') do |file|
         file.write(uploaded_io.read)
       end
 
