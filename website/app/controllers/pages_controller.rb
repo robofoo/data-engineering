@@ -8,7 +8,6 @@ class PagesController < ApplicationController
     if params.has_key?(:purchases)
       uploaded_io = params[:purchases]
       file_path = Rails.root.join('public', 'uploads', uploaded_io.original_filename)
-
       total_revenue = Parser.process(uploaded_io, file_path)
 
       flash[:notice] = "file uploaded. total revenue = $#{total_revenue}"
