@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def upload
     if params.has_key?(:purchases)
-      flash[:notice] = 'uploading...'
+      flash[:notice] = 'file uploaded'
     else
       flash[:notice] = 'please select a file'
     end
