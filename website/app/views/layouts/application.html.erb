@@ -8,6 +8,15 @@
 </head>
 <body>
 
+
+<% if flash %>
+  <p style="background-color: #ccc">
+    <% flash.each do |key, message| %>
+      <%= message %>
+    <% end %>
+  </p>
+<% end %>
+
 <%= yield %>
 
 </body>
