@@ -9,9 +9,9 @@ class PagesController < ApplicationController
       uploaded_io = params[:purchases]
       file_path = Rails.root.join('public', 'uploads', uploaded_io.original_filename)
 
-      total = Parser.process(uploaded_io, file_path)
+      total_revenue = Parser.process(uploaded_io, file_path)
 
-      flash[:notice] = "file uploaded. total revenue = $#{total}"
+      flash[:notice] = "file uploaded. total revenue = $#{total_revenue}"
     else
       flash[:notice] = 'please select a file'
     end
