@@ -13,7 +13,10 @@ class PagesController < ApplicationController
       end
 
       purchase_details = CSV.read(file_path, {:headers => :first_row, :col_sep => "\t" })
-      flash[:notice] = 'file uploaded'
+
+      total = purchase_details.map { |row| row['item price'].to_i * row['purchase count'].to_i }.sum
+
+      flash[:notice] = "file uploaded. total revenue = $#{total}"
     else
       flash[:notice] = 'please select a file'
     end
