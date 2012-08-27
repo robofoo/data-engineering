@@ -1,3 +1,5 @@
+require 'csv'
+
 class PagesController < ApplicationController
   def index
   end
@@ -10,6 +12,7 @@ class PagesController < ApplicationController
         file.write(uploaded_io.read)
       end
 
+      purchase_details = CSV.read(file_path, {:headers => :first_row, :col_sep => "\t" })
       flash[:notice] = 'file uploaded'
     else
       flash[:notice] = 'please select a file'
